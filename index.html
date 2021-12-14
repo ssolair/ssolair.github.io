@@ -1,20 +1,65 @@
-<!DOCTYPE html>
-<html land= "en">
-    <head>
-        <title>Testing Lol</title>
-        <!--<link rel="icon">-->
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+<html>
+  <head></head>
+  <body>
+    <script>
+    function makeApiCall() {
+      var params = {
+        // The spreadsheet to request.
+        spreadsheetId: "1NJrmjnYCJp-E4VJyQa3DmeZtm6-PwsFfkmyDBLrkLAw",
 
-    <body>
-        <button id= "signInButton" onclick="handleSignInClick()">Sign In</button> 
-        <button id= "signOutButton" onclick="handleSignOutClick()">Sign Out</button> 
-    </body>
+        // The ranges to retrieve from the spreadsheet.
+        range: 'Sheet1!A:A',
+      };
 
-    <script type="text/javascript" src="js/main.js"></script>
+      var request = gapi.client.sheets.spreadsheets.get(params);
+      request.then(function(response) {
+        console.log(response.result.values[0][0]);
+      }, function(reason) {
+        console.error('error: ' + reason.result.error.message);
+      });
+    }
 
+    function initClient() {
+      var API_KEY = "AIzaSyA8v4fvkZwDNgqfICcvXxSAypOe1HWk_JM";
+
+      var CLIENT_ID = "461958078181-kq3re2kbr613dg511su21e78ouvg8s29.apps.googleusercontent.com";
+
+      var SCOPE = "https://www.googleapis.com/auth/spreadsheets";
+
+      gapi.client.init({
+        'apiKey': API_KEY,
+        'clientId': CLIENT_ID,
+        'scope': SCOPE,
+        'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
+      }).then(function() {
+        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
+        updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+      });
+    }
+
+    function handleClientLoad() {
+      gapi.load('client:auth2', initClient);
+    }
+
+    function updateSignInStatus(isSignedIn) {
+      if (isSignedIn) {
+        makeApiCall();
+      }
+    }
+
+    function handleSignInClick(event) {
+      gapi.auth2.getAuthInstance().signIn();
+    }
+
+    function handleSignOutClick(event) {
+      gapi.auth2.getAuthInstance().signOut();
+    }
+    </script>
     <script async defer src="https://apis.google.com/js/api.js"
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
+    <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
+    <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
+  </body>
 </html>
