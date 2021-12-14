@@ -57,6 +57,7 @@ function addImgsAll() { // Load all images with specified tags
         if (isNaN(max)) {
             max = 9999999
         }
+        console.log(document.getElementById('tags').value.split(', '));
         var query = document.getElementById('tags').value.split(', ');
         var min_query = [];
         for(let x = 0; x < query.length; x++){
