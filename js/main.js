@@ -14,6 +14,22 @@ function notify(msg, color) { // Normal
 
 ssID = "1NJrmjnYCJp-E4VJyQa3DmeZtm6-PwsFfkmyDBLrkLAw"
 
+function get() {
+    var params = {
+    // The ID of the spreadsheet to retrieve data from.
+    spreadsheetId: ssID,
+
+    // The A1 notation of the values to retrieve.
+    range: 'Sheet1',
+    };
+
+    var request = gapi.client.sheets.spreadsheets.values.get(params);
+    request.then(function(response) {
+    }, function(reason) {
+    console.error('error: ' + reason.result.error.message);
+    });
+}
+
 function addImgsAll() {
     document.getElementById('body').innerHTML = "";
     var params = {
@@ -29,6 +45,7 @@ function addImgsAll() {
         let i = 0;
         LoadedImages = 0
         min = 0
+        max = 9999999
         while (i < response.result.values.length) {
             // Add images to website
             function imgHandle() {
