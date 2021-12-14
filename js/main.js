@@ -21,11 +21,13 @@ function comparelist(taglist, list, min_list){
     for (var a in taglist){
         for (var b in list){
             if (a != b){
+                console.log("weep faggot")
                 return false
            }
         }
         for (var b in min_list){
             if (a == b){
+                console.log("cry some more")
                 return false
             }
         }
