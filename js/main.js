@@ -45,9 +45,6 @@ function addImgsAll() { // Load all images with specified tags
         range: 'Sheet1!A:B',
     };
     
-    tags = document.getElementById('to').value
-    var tagsArr = tags.split(', ')
-    
     var request = gapi.client.sheets.spreadsheets.values.get(params);
     request.then(function(response) {
         let i = 0;
@@ -60,7 +57,13 @@ function addImgsAll() { // Load all images with specified tags
         if (isNaN(max)) {
             max = 9999999
         }
-        
+        var rows_data = new array(response.result.values.length)
+        for(let i = 0; i < rows_data.length; i++) {
+            rows_data[i] = {
+                url: response.result.values[i][0],
+                tags = response.result.velues[i][1].split(', ')
+            }
+        }
         while (i < response.result.values.length) {
             // Add images to website
             function imgHandle() {
