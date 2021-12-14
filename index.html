@@ -5,4 +5,16 @@
         <!--<link rel="icon">-->
         <link rel="stylesheet" href="css/style.css">
     </head>
+
+    <body>
+        <button id= "signInButton" onclick="handleSignInClick()">Sign In</button> 
+        <button id= "signOutButton" onclick="handleSignOutClick()">Sign Out</button> 
+    </body>
+
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
 </html>
