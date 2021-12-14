@@ -61,10 +61,10 @@ function addImgsAll() { // Load all images with specified tags
         arrImages = Array(response.result.values.length)
         for(let i = 1; i<arrImages.length; i++){
             arrImages[i] = {
-                'url': response.result.values[i][0],
-                'tags': response.result.values[i][1].split(', ')
+                url: response.result.values[i][0],
+                tags: response.result.values[i][1].split(', ')
             }
-            console.log(arrImages[i][0])
+            console.log(arrImages[i][url])
         }
             
         while (i < arrImages.length) {
@@ -72,7 +72,7 @@ function addImgsAll() { // Load all images with specified tags
             function imgHandle() {
                 LoadedImages += 1
                 if (LoadedImages > min && LoadedImages < max) {
-                    if (arrImages[i]['url'].match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
+                    if (arrImages[i][url].match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
                         var imgs = document.createElement("video");
                         imgs.setAttribute("controls","controls")
                         imgs.setAttribute("loop","true")
@@ -80,13 +80,13 @@ function addImgsAll() { // Load all images with specified tags
                         var imgs = document.createElement("img");
                     }
                     var src = document.getElementById("body");
-                    imgs.src = arrImages[i]['url'];
+                    imgs.src = arrImages[i][url];
                     src.appendChild(imgs);
                     imgs.style.width = imgsize;
                     imgs.style.height = 'auto';
                 }
             }
-            if (arrImages[i]['url'] != null) {
+            if (arrImages[i][url] != null) {
                 imgHandle();
             }
 
