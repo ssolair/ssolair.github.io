@@ -90,7 +90,7 @@ function addImgsAll() { // Load all images with specified tags
         
         while (i < response.result.values.length) {
             // Add images to website
-            function imgHandle() {
+            if (comparelist(response.result.values[i][1], query, min_query)){
                 LoadedImages += 1
                 if (LoadedImages > min && LoadedImages < max) {
                         if (response.result.values[i][0].match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
@@ -100,14 +100,13 @@ function addImgsAll() { // Load all images with specified tags
                         } else {
                             var imgs = document.createElement("img");
                         }
-                    var src = document.getElementById("body");
+                    var src = document.getElementById("body"); 
                     imgs.src = response.result.values[i][0];
                     src.appendChild(imgs);
                     imgs.style.width = imgsize;
                     imgs.style.height = 'auto';
                 }
-            }
-            if (comparelist(response.result.values[i][1], query, min_query)){
+            
                 if (response.result.values[i][0] != null) {
                     imgHandle();
                 }
