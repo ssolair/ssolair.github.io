@@ -1,3 +1,24 @@
+// Change button colors when hovering over them
+document.getElementById("signin-button").addEventListener("mouseover", ev => { // About, sign in, sign out, home buttons
+    document.getElementById("signin-button").style.backgroundColor = '#8FB1E0'
+})
+document.getElementById("signin-button").addEventListener("mouseout", ev => {
+    document.getElementById("signin-button").style.backgroundColor = '#A1C7FF'
+})
+document.getElementById("signout-button").addEventListener("mouseover", ev => {
+    document.getElementById("signout-button").style.backgroundColor = '#8FB1E0'
+})
+document.getElementById("signout-button").addEventListener("mouseout", ev => {
+    document.getElementById("signout-button").style.backgroundColor = '#A1C7FF'
+})
+
+document.getElementById("update-button").addEventListener("mouseover", ev => { // Load image buttons
+    document.getElementById("update-button").style.backgroundColor = '#8FB1E0'
+})
+document.getElementById("update-button").addEventListener("mouseout", ev => {
+    document.getElementById("update-button").style.backgroundColor = '#A1C7FF'
+})
+
 // Notifications
 function notify(msg, color) { // Normal
     var notifier = document.getElementById("notify");
