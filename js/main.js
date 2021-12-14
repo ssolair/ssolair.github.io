@@ -84,6 +84,9 @@ function addImgsAll() { // Load all images with specified tags
                 query.splice(x, 1);
             }
         }
+        if (query[0] == "") {
+            query = []
+        }
         console.log(query)
         console.log(min_query)
         
