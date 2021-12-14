@@ -49,7 +49,7 @@ function addImgsAll() { // Load all images with specified tags
         range: 'Sheet1!B:B'
     };
     var tag_req = gapi.client.sheets.spreadsheets.values.get(tag_params);
-    request.then(function(response) {
+    tag_req.then(function(response) {
         min = parseInt(document.getElementById("from").value) - 1
         max = parseInt(document.getElement.ById("to").value) + 1
     }
