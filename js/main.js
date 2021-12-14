@@ -42,7 +42,7 @@ function addImgsAll() { // Load all images with specified tags
     document.getElementById('body').innerHTML = "";
     var params = {
         spreadsheetId: ssID,
-        range: 'Sheet1!A:A',
+        range: 'Sheet1!A:B',
     };
 
     var request = gapi.client.sheets.spreadsheets.values.get(params);
@@ -57,6 +57,17 @@ function addImgsAll() { // Load all images with specified tags
         if (isNaN(max)) {
             max = 9999999
         }
+        var query = document.getElementById('tags').value.split(', ');
+        var min_query = [];
+        for(let x = 0; x < query.length; x++){
+            if (query[x][0] == '-') {
+                min_query.push(query[x].substring(1));
+                query.splice(x, 1);
+            }
+        }
+        console.log(query)
+        console.log(min_query)
+        
         while (i < response.result.values.length) {
             // Add images to website
             function imgHandle() {
