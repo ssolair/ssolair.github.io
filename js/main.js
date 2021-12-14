@@ -17,24 +17,20 @@ function notify(msg, color) {
 }
 
 function comparelist(taglist, list, min_list){
-    var out = true
-    for (var a in taglist){
-        for (var b in list){
-            if (a != b){
-                console.log("weep faggot")
-                return false
-           }
+    for (var a in list) {
+        if (!(taglist.includes(a))){
+            console.log("Check a")
+            return false
         }
-        for (var b in min_list){
-            if (a == b){
-                console.log("cry some more")
-                return false
-            }
+    }
+    for (var b in min_list) {
+        if (taglist.includes(b)) {
+            console.log("falsied on the b")
+            return false
         }
     }
     console.log("compare list done :D")
-    console.log(out)
-    return out
+    return true
 }
 
 
