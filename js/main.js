@@ -57,6 +57,14 @@ function addImgsAll() { // Load all images with specified tags
         if (isNaN(max)) {
             max = 9999999
         }
+        var arrImages = Array(response.result.values.length)
+        for(let i = 1; i<response.result.values.length; i++){
+            arrImages[i] = {
+                'url': response.result.values[i][0],
+                'tags': response.result.values[i][1].split(', ')
+            }
+        }
+            
         while (i < response.result.values.length) {
             // Add images to website
             function imgHandle() {
