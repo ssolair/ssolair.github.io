@@ -21,12 +21,14 @@ function comparelist(taglist, list, min_list){
     for (var a in list) {
         console.log(a)
         if (!(taglist.includes(a))){
+            console.log("fail a")
             return false
         }
     }
     for (var b in min_list) {
         console.log(b)
         if (taglist.includes(b)) {
+            console.log("fail b")
             return false
         }
     }
@@ -89,7 +91,6 @@ function addImgsAll() { // Load all images with specified tags
         
         while (i < response.result.values.length) {
             // Add images to website
-            console.log("grab")
             if (comparelist(response.result.values[i][1].slice(2, -2).split("', '"), query, min_query)){
                 LoadedImages += 1
                 if (LoadedImages > min && LoadedImages < max) {
