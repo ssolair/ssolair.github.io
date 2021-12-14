@@ -49,8 +49,14 @@ function addImgsAll() { // Load all images with specified tags
     request.then(function(response) {
         let i = 0;
         LoadedImages = 0
-        min = 0
-        max = 9999999
+        min = parseInt(document.getElementById("from").value) - 1
+        max = parseInt(document.getElementById("to").value) + 1
+        if (isNaN(min)) {
+            min = 0
+        }
+        if (isNaN(max)) {
+            max = 9999999
+        }
         while (i < response.result.values.length) {
             // Add images to website
             function imgHandle() {
