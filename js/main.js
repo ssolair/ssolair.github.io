@@ -17,19 +17,19 @@ function notify(msg, color) {
 }
 
 function comparelist(taglist, list, min_list){
+    console.log(taglist)
     for (var a in list) {
         if (!(taglist.includes(a))){
-            console.log("Check a")
+            console.log(a)
             return false
         }
     }
     for (var b in min_list) {
         if (taglist.includes(b)) {
-            console.log("falsied on the b")
+            console.log(b)
             return false
         }
     }
-    console.log("compare list done :D")
     return true
 }
 
@@ -73,7 +73,6 @@ function addImgsAll() { // Load all images with specified tags
         if (isNaN(max)) {
             max = 9999999
         }
-        console.log(document.getElementById('tags').value.split(', '));
         var query = document.getElementById('tags').value.split(', ');
         var min_query = [];
         for(let x = 0; x < query.length; x++){
@@ -90,7 +89,6 @@ function addImgsAll() { // Load all images with specified tags
         
         while (i < response.result.values.length) {
             // Add images to website
-            console.log(response.result.values[i][1])
             if (comparelist(response.result.values[i][1], query, min_query)){
                 LoadedImages += 1
                 if (LoadedImages > min && LoadedImages < max) {
