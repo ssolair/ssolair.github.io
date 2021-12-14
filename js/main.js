@@ -18,15 +18,15 @@ function notify(msg, color) {
 
 function comparelist(taglist, list, min_list){
     console.log(taglist)
+    console.log(list)
+    console.log(min_list)
     for (var a in list) {
-        console.log(a)
         if (!(taglist.includes(a))){
             console.log("fail a")
             return false
         }
     }
     for (var b in min_list) {
-        console.log(b)
         if (taglist.includes(b)) {
             console.log("fail b")
             return false
