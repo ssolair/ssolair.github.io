@@ -89,6 +89,8 @@ function addImgsAll() { // Load all images with specified tags
         
         while (i < response.result.values.length) {
             // Add images to website
+            console.log("grab")
+            console.log(response.result.values[i][1][0])
             if (comparelist(response.result.values[i][1], query, min_query)){
                 LoadedImages += 1
                 if (LoadedImages > min && LoadedImages < max) {
