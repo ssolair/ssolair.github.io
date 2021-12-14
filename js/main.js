@@ -1,18 +1,5 @@
 // Change button colors when hovering over them
-document.getElementById("signin-button").addEventListener("mouseover", ev => { // About, sign in, sign out, home buttons
-    document.getElementById("signin-button").style.backgroundColor = '#8FB1E0'
-})
-document.getElementById("signin-button").addEventListener("mouseout", ev => {
-    document.getElementById("signin-button").style.backgroundColor = '#A1C7FF'
-})
-document.getElementById("signout-button").addEventListener("mouseover", ev => {
-    document.getElementById("signout-button").style.backgroundColor = '#8FB1E0'
-})
-document.getElementById("signout-button").addEventListener("mouseout", ev => {
-    document.getElementById("signout-button").style.backgroundColor = '#A1C7FF'
-})
-
-document.getElementById("update-button").addEventListener("mouseover", ev => { // Load image buttons
+document.getElementById("update-button").addEventListener("mouseover", ev => { // Load images button
     document.getElementById("update-button").style.backgroundColor = '#8FB1E0'
 })
 document.getElementById("update-button").addEventListener("mouseout", ev => {
@@ -20,7 +7,7 @@ document.getElementById("update-button").addEventListener("mouseout", ev => {
 })
 
 // Notifications
-function notify(msg, color) { // Normal
+function notify(msg, color) {
     var notifier = document.getElementById("notify");
     notifier.style.backgroundColor = color
     var notifierText = document.getElementById("notifyText");
@@ -35,7 +22,7 @@ function notify(msg, color) { // Normal
 
 ssID = "1NJrmjnYCJp-E4VJyQa3DmeZtm6-PwsFfkmyDBLrkLAw"
 
-function get() {
+function get() { // Not important, ignore this
     var params = {
     // The ID of the spreadsheet to retrieve data from.
     spreadsheetId: ssID,
@@ -51,17 +38,14 @@ function get() {
     });
 }
 
-function addImgsAll() {
+function addImgsAll() { // Load all images with specified tags
     document.getElementById('body').innerHTML = "";
     var params = {
-        // The ID of the spreadsheet to retrieve data from.
         spreadsheetId: ssID,
-
-        // Spreadsheet range to read/write to.
         range: 'Sheet1!A:A',
     };
 
-    var request = gapi.client.sheets.spreadsheets.values.get(params); // Load All Images
+    var request = gapi.client.sheets.spreadsheets.values.get(params);
     request.then(function(response) {
         let i = 0;
         LoadedImages = 0
@@ -72,7 +56,7 @@ function addImgsAll() {
             function imgHandle() {
                 LoadedImages += 1
                 if (LoadedImages > min && LoadedImages < max) {
-                    if (response.result.values[i][0].match(/\.(mp4|webm)$/)) {
+                    if (response.result.values[i][0].match(/\.(mp4|webm|mov)$/)) {
                         var imgs = document.createElement("video");
                         imgs.setAttribute("controls","controls")
                         imgs.setAttribute("loop","true")
@@ -126,13 +110,4 @@ function updateSignInStatus(isSignedIn) {
     get();
     notify("Signed in.", '#00744d');
     }
-}
-
-function handleSignInClick(event) {
-    gapi.auth2.getAuthInstance().signIn();
-}
-
-function handleSignOutClick(event) {
-    gapi.auth2.getAuthInstance().signOut();
-    notify("Signed out.", '#747200');
 }
