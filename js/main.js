@@ -64,10 +64,10 @@ function addImgsAll() { // Load all images with specified tags
                 'url': response.result.values[i][0],
                 'tags': response.result.values[i][1].split(', ')
             }
+            console.log(arrImages[i][0]
         }
             
         while (i < arrImages.length) {
-            console.log(arrImages[i]['url'])
             // Add images to website
             function imgHandle() {
                 LoadedImages += 1
