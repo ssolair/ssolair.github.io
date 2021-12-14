@@ -11,6 +11,7 @@ function get() {
 
     var request = gapi.client.sheets.spreadsheets.values.get(params);
     request.then(function(response) {
+        console.log(response.result.values[0][0])
     }, function(reason) {
         console.error('error: ' + reason.result.error.message);
     });
