@@ -78,13 +78,13 @@ function addImgsAll() { // Load all images with specified tags
                         var imgs = document.createElement("img");
                     }
                     var src = document.getElementById("body");
-                    imgs.src = arrImages[i]['url];
+                    imgs.src = arrImages[i]['url'];
                     src.appendChild(imgs);
                     imgs.style.width = imgsize;
                     imgs.style.height = 'auto';
                 }
             }
-            if (response.result.values[i][0] != null) {
+            if (arrImages[i]['url'] != null) {
                 imgHandle();
             }
 
