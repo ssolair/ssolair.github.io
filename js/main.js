@@ -42,19 +42,11 @@ function addImgsAll() { // Load all images with specified tags
     document.getElementById('body').innerHTML = "";
     var params = {
         spreadsheetId: ssID,
-        range: 'Sheet1!A:A',
+        range: 'Sheet1!A:B',
     };
-    var tag_params = {
-        spreadsheetId: ssID,
-        range: 'Sheet1!B:B'
-    };
+    
     tags = document.getElementById('to').value
     var tagsArr = tags.split(', ')
-    var tag_req = gapi.client.sheets.spreadsheets.values.get(tag_params);
-    tag_req.then(function(response) {
-        min = parseInt(document.getElementById("from").value) - 1
-        max = parseInt(document.getElement.ById("to").value) + 1
-    }
     
     var request = gapi.client.sheets.spreadsheets.values.get(params);
     request.then(function(response) {
@@ -68,6 +60,7 @@ function addImgsAll() { // Load all images with specified tags
         if (isNaN(max)) {
             max = 9999999
         }
+        
         while (i < response.result.values.length) {
             // Add images to website
             function imgHandle() {
