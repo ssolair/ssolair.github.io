@@ -64,7 +64,7 @@ function addImgsAll() { // Load all images with specified tags
                 'url': response.result.values[i][0],
                 'tags': response.result.values[i][1].split(', ')
             }
-            console.log(arrImages[i][0]
+            console.log(arrImages[i][0])
         }
             
         while (i < arrImages.length) {
