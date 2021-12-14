@@ -19,14 +19,14 @@ function notify(msg, color) {
 function comparelist(taglist, list, min_list){
     console.log(taglist)
     for (var a in list) {
+        console.log(a)
         if (!(taglist.includes(a))){
-            console.log(a)
             return false
         }
     }
     for (var b in min_list) {
+        console.log(b)
         if (taglist.includes(b)) {
-            console.log(b)
             return false
         }
     }
