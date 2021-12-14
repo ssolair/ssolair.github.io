@@ -62,7 +62,7 @@ function addImgsAll() { // Load all images with specified tags
             function imgHandle() {
                 LoadedImages += 1
                 if (LoadedImages > min && LoadedImages < max) {
-                    if (response.result.values[i][0].match(/\.(mp4|webm|mov)$/)) {
+                    if (response.result.values[i][0].match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
                         var imgs = document.createElement("video");
                         imgs.setAttribute("controls","controls")
                         imgs.setAttribute("loop","true")
@@ -82,14 +82,14 @@ function addImgsAll() { // Load all images with specified tags
 
             i++;
         }
-    }, function(reason) {
+    }, function(reason) { // Obviously just print the error if there is one
         console.error('error: ' + reason.result.error.message);
     });
 }
 
 
 
-function initClient() {
+function initClient() { // Runs right as the user enters the website.
     var API_KEY = 'AIzaSyA8v4fvkZwDNgqfICcvXxSAypOe1HWk_JM';
 
     var CLIENT_ID = '461958078181-kq3re2kbr613dg511su21e78ouvg8s29.apps.googleusercontent.com';
@@ -107,11 +107,11 @@ function initClient() {
     });
 }
 
-function handleClientLoad() {
+function handleClientLoad() { // When a client loads the page
     gapi.load('client:auth2', initClient);
 }
 
-function updateSignInStatus(isSignedIn) {
+function updateSignInStatus(isSignedIn) { // Ignore this for now
     if (isSignedIn) {
     get();
     notify("Signed in.", '#00744d');
