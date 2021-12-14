@@ -61,7 +61,7 @@ function addImgsAll() { // Load all images with specified tags
         for(let i = 0; i < rows_data.length; i++) {
             rows_data[i] = {
                 url: response.result.values[i][0],
-                tags = response.result.velues[i][1].split(', ')
+                tags: response.result.velues[i][1].split(', ')
             }
         }
         while (i < response.result.values.length) {
