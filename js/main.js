@@ -93,7 +93,6 @@ function addImgsAll() { // Load all images with specified tags
             function imgHandle() {
                 LoadedImages += 1
                 if (LoadedImages > min && LoadedImages < max) {
-                    if (comparelist(response.result.values[i][1], query, min_query)){
                         if (response.result.values[i][0].match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
                             var imgs = document.createElement("video");
                             imgs.setAttribute("controls","controls")
@@ -101,7 +100,6 @@ function addImgsAll() { // Load all images with specified tags
                         } else {
                             var imgs = document.createElement("img");
                         }
-                    }
                     var src = document.getElementById("body");
                     imgs.src = response.result.values[i][0];
                     src.appendChild(imgs);
@@ -109,9 +107,11 @@ function addImgsAll() { // Load all images with specified tags
                     imgs.style.height = 'auto';
                 }
             }
-            if (response.result.values[i][0] != null) {
-                imgHandle();
-            }
+            if (comparelist(response.result.values[i][1], query, min_query)){
+                if (response.result.values[i][0] != null) {
+                    imgHandle();
+                }
+            }   
 
             i++;
         }
