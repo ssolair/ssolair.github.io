@@ -42,7 +42,7 @@ function addImgsAll() { // Load all images with specified tags
     document.getElementById('body').innerHTML = "";
     var params = {
         spreadsheetId: ssID,
-        range: 'Sheet1!A:A',
+        range: 'Sheet1!A:B',
     };
 
     var request = gapi.client.sheets.spreadsheets.values.get(params);
