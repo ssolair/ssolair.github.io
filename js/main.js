@@ -16,6 +16,24 @@ function notify(msg, color) {
     setTimeout(() => {notifier.style.visibility='hidden'}, 5000);
 }
 
+function comparelist(taglist, list, min_list){
+    var out = true
+    for (var a in taglist){
+        for (var b in list){
+            if (a != b){
+                return false
+           }
+        }
+        for (var b in min_list){
+            if (a == b){
+                return false
+            }
+        }
+    }
+    console.log("compare list done :D")
+    console.log(out)
+    return out
+}
 
 
 
@@ -74,12 +92,14 @@ function addImgsAll() { // Load all images with specified tags
             function imgHandle() {
                 LoadedImages += 1
                 if (LoadedImages > min && LoadedImages < max) {
-                    if (response.result.values[i][0].match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
-                        var imgs = document.createElement("video");
-                        imgs.setAttribute("controls","controls")
-                        imgs.setAttribute("loop","true")
-                    } else {
-                        var imgs = document.createElement("img");
+                    if (comparelist(response.result.values[i][1], query, min_query)){
+                        if (response.result.values[i][0].match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
+                            var imgs = document.createElement("video");
+                            imgs.setAttribute("controls","controls")
+                            imgs.setAttribute("loop","true")
+                        } else {
+                            var imgs = document.createElement("img");
+                        }
                     }
                     var src = document.getElementById("body");
                     imgs.src = response.result.values[i][0];
