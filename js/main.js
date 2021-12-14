@@ -48,6 +48,8 @@ function addImgsAll() { // Load all images with specified tags
         spreadsheetId: ssID,
         range: 'Sheet1!B:B'
     };
+    tags = document.getElementById('to').value
+    var tagsArr = tags.split(', ')
     var tag_req = gapi.client.sheets.spreadsheets.values.get(tag_params);
     tag_req.then(function(response) {
         min = parseInt(document.getElementById("from").value) - 1
