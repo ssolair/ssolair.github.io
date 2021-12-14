@@ -106,10 +106,6 @@ function addImgsAll() { // Load all images with specified tags
                     imgs.style.width = imgsize;
                     imgs.style.height = 'auto';
                 }
-            
-                if (response.result.values[i][0] != null) {
-                    imgHandle();
-                }
             }   
 
             i++;
