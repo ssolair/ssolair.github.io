@@ -29,14 +29,14 @@ body {
 
 .header {
     border-radius: 20px;
-    height:175px;
+    height:100px;
     background-color:rgb(0, 86, 126);
     display: flex;
     justify-content:center;
 }
 .title {
     border-radius: 20px;
-    height:125px;
+    height:50px;
     width:400px;
     background-color: rgb(0, 76, 116);
 }
