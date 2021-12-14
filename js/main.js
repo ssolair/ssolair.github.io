@@ -58,7 +58,7 @@ function addImgsAll() { // Load all images with specified tags
         if (isNaN(max)) {
             max = 9999999
         }
-        arrImages = Array(response.result.values.length)
+        var arrImages = []
         for(let i = 1; i<arrImages.length; i++){
             arrImages[i] = {
                 url: response.result.values[i][0],
