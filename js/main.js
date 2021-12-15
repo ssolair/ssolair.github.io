@@ -106,9 +106,26 @@ function addImgsAll() { // Load all images with specified tags
         let i = 0;
         let p = 0
         let LoadedImages = 0;
-        total_pages = search_len(response.result, query, min_query)
+        files = search_len(response.result, query, min_query)
+        total_pages = Math.ceil(files/25)
         console.log(total_pages)
-        while (i < response.result.values.length && LoadedImages < 25) {
+        for(i = (files_nums - 25); i < file_nums; i++) {
+            if (files[i][url].match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
+                var imgs = document.createElement("video");
+                imgs.setAttribute("controls","controls")
+                imgs.setAttribute("loop","true")
+            } else {
+                var imgs = document.createElement("img");
+            }
+        var src = document.getElementById("body"); 
+        imgs.src = files[i][1];
+        src.appendChild(imgs);
+        imgs.style.width = '450px';
+        imgs.style.height = 'auto';
+        imgs.style.border = "5px";
+        LoadedImages += 1
+        }
+        /*while (i < response.result.values.length && LoadedImages < 25) {
             // Add images to website
             if (comparelist(response.result.values[i][1].slice(2, -2).split("', '"), query, min_query)){
                 if (LoadedImages <= 25 && p >= (file_nums-25)) {
@@ -133,6 +150,7 @@ function addImgsAll() { // Load all images with specified tags
             i++; 
             
         }
+        */
     }, function(reason) { // Obviously just print the error if there is one
         console.error('error: ' + reason.result.error.message);
     });
