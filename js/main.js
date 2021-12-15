@@ -9,7 +9,7 @@ document.getElementById("update-button").addEventListener("mouseout", ev => {
 var tpages = document.getElementById("tpages")
 
 // Notifications
-function notify(msg, color) {
+function notify(msg, color) { // Used for creating a popup at top of site, parameters include message and color of popup
     var notifier = document.getElementById("notify");
     notifier.style.backgroundColor = color
     var notifierText = document.getElementById("notifyText");
@@ -17,7 +17,8 @@ function notify(msg, color) {
     notifier.style.visibility = 'visible';
     setTimeout(() => {notifier.style.visibility='hidden'}, 5000);
 }
-function comparelist(taglist, list, min_list){
+
+function comparelist(taglist, list, min_list){ // Compares the include/exclude tags to the list of tags for an image
     for (var a of list) {
         if (!(taglist.includes(a))){
             return false
