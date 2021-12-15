@@ -58,6 +58,7 @@ function get() { // Not important, ignore this
 }
 
 function addImgsAll() { // Load all images with specified tags
+    
     document.getElementById('body').innerHTML = "";
     var params = {
         spreadsheetId: ssID,
@@ -73,7 +74,6 @@ function addImgsAll() { // Load all images with specified tags
             page = 1;
         }
         var file_nums = (page * 25)
-        console.log(file_nums)
         
 
         var query = document.getElementById('tags').value.split(', ');
@@ -87,13 +87,13 @@ function addImgsAll() { // Load all images with specified tags
         if (query[0] == "") {
             query = []
         }
+        
         var LoadedImages = 0
-
-        while (i < response.result.values.length && LoadedImages <= file_nums) {
+        while (i < response.result.values.length && LoadedImages < file_nums) {
             // Add images to website
             if (comparelist(response.result.values[i][1].slice(2, -2).split("', '"), query, min_query)){
                 
-                if (LoadedImages > (file_nums-25)) {
+                if (LoadedImages >= (file_nums-25)) {
                         if (response.result.values[i][0].match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
                             var imgs = document.createElement("video");
                             imgs.setAttribute("controls","controls")
@@ -110,7 +110,6 @@ function addImgsAll() { // Load all images with specified tags
                     LoadedImages += 1
                 }           
             }   
-            console.log("loopin")
             i++;
         }
     }, function(reason) { // Obviously just print the error if there is one
