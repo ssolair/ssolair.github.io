@@ -63,22 +63,6 @@ enterclick(input)
 
 ssID = "1NJrmjnYCJp-E4VJyQa3DmeZtm6-PwsFfkmyDBLrkLAw"
 
-function get() { // Not important, ignore this
-    var params = {
-    // The ID of the spreadsheet to retrieve data from.
-    spreadsheetId: ssID,
-
-    // The A1 notation of the values to retrieve.
-    range: 'Sheet1',
-    };
-
-    var request = gapi.client.sheets.spreadsheets.values.get(params);
-    request.then(function(response) {
-    }, function(reason) {
-    console.error('error: ' + reason.result.error.message);
-    });
-}
-
 function addImgsAll() { // Load all images with specified tags
     
     document.getElementById('body').innerHTML = "";
