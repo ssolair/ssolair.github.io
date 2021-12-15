@@ -32,8 +32,8 @@ function comparelist(taglist, list, min_list){
 
 function search_len(fullsearch, list, min_list){
     let x = 0;
-    for(let y = 0; y < fullsearch.length; y++){
-        if (comparelist(fullsearch[x][1].slice(2, -2).split("', '"), list, min_list)){
+    for(let y = 0; y < fullsearch.values.length; y++){
+        if (comparelist(fullsearch.values[x][1].slice(2, -2).split("', '"), list, min_list)){
             x += 1;
         }
     }
@@ -102,7 +102,7 @@ function addImgsAll() { // Load all images with specified tags
         let i = 0;
         let p = 0
         let LoadedImages = 0;
-        total_pages = (search_len(response.result.values, query, min_query) / 25)
+        total_pages = (search_len(response.result, query, min_query) / 25)
         console.log(total_pages)
         while (i < response.result.values.length && LoadedImages < 25) {
             // Add images to website
