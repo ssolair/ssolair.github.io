@@ -68,9 +68,10 @@ function addImgsAll() { // Load all images with specified tags
     request.then(function(response) {
         let i = 0;
         LoadedImages = 0
+
         var page = parseInt(document.getElementById("page").value)
         var file_nums = page * 25
-        
+
         var query = document.getElementById('tags').value.split(', ');
         var min_query = [];
         for(let x = 0; x < query.length; x++){
@@ -83,6 +84,7 @@ function addImgsAll() { // Load all images with specified tags
             query = []
         }
         
+
         while (i < response.result.values.length && i < file_nums) {
             // Add images to website
             if (comparelist(response.result.values[i][1].slice(2, -2).split("', '"), query, min_query)){
@@ -104,6 +106,7 @@ function addImgsAll() { // Load all images with specified tags
                 }
                 i++;
             }   
+
         }
     }, function(reason) { // Obviously just print the error if there is one
         console.error('error: ' + reason.result.error.message);
