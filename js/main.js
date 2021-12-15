@@ -80,9 +80,10 @@ function addImgsAll() { // Load all images with specified tags
         }
         var file_nums = (page * 25)
 
-        var query = document.getElementById('tags').toLowerCase().value.split(', ');
+        var query = document.getElementById('tags').value.split(', ');
         var min_query = [];
         for(let x = 0; x < query.length; x++){
+            query[x][0] = query[x][0].toLowerCase()
             if (query[x][0] == '-') {
                 min_query.push(query[x].substring(1));
                 query.splice(x, 1);
