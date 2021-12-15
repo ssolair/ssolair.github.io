@@ -89,11 +89,11 @@ function addImgsAll() { // Load all images with specified tags
         }
         
         var LoadedImages = 0
-        while (i < response.result.values.length && LoadedImages < file_nums) {
+        while (i < response.result.values.length && LoadedImages != file_nums) {
             // Add images to website
             if (comparelist(response.result.values[i][1].slice(2, -2).split("', '"), query, min_query)){
                 
-                if (LoadedImages >= (file_nums-25)) {
+                if (LoadedImages < file_nums && LoadedImages >= (file_nums-25)) {
                         if (response.result.values[i][0].match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
                             var imgs = document.createElement("video");
                             imgs.setAttribute("controls","controls")
