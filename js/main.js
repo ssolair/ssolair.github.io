@@ -111,6 +111,7 @@ function addImgsAll() { // Load all images with specified tags
                 }
                 LoadedImages += 1              
             }   
+            console.log("loopin")
             i++;
         }
     }, function(reason) { // Obviously just print the error if there is one
