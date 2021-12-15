@@ -110,7 +110,7 @@ function addImgsAll() { // Load all images with specified tags
         total_pages = Math.ceil(files/25)
         console.log(total_pages)
         for(i = (file_nums - 25); i < file_nums; i++) {
-            if (files[i][url].match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
+            if (files[i].url.match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
                 var imgs = document.createElement("video");
                 imgs.setAttribute("controls","controls")
                 imgs.setAttribute("loop","true")
@@ -118,7 +118,7 @@ function addImgsAll() { // Load all images with specified tags
                 var imgs = document.createElement("img");
             }
         var src = document.getElementById("body"); 
-        imgs.src = files[i][1];
+        imgs.src = files[i].url;
         src.appendChild(imgs);
         imgs.style.width = '450px';
         imgs.style.height = 'auto';
