@@ -30,9 +30,7 @@ function comparelist(taglist, list, min_list){
 }
 
 function search_len(result, list, min_list) {
-    var output = {
-        files: []
-    }
+    files= []
     for(i = 0; i < result.values.length; i++){
         var url = result.values[i][0]
         var tags = result.values[i][1].slice(2, -2).split("', '")
