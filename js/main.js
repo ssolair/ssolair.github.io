@@ -95,7 +95,7 @@ function addImgsAll() { // Load all images with specified tags
             // Add images to website
             if (comparelist(response.result.values[i][1].slice(2, -2).split("', '"), query, min_query)){
                 console.log("Compare check")
-                if (LoadedImages < file_nums && LoadedImages >= (file_nums-25)) {
+                if (LoadedImages < file_nums && i >= (file_nums-25)) {
                     console.log("ifirst check")
                         if (response.result.values[i][0].match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
                             var imgs = document.createElement("video");
@@ -111,9 +111,12 @@ function addImgsAll() { // Load all images with specified tags
                     imgs.style.height = 'auto';
                     imgs.style.border = "5px";
                     LoadedImages += 1
-                }           
+                }      
+                console.log(i)
+                i++;     
             }
-            i++;
+            console.log(i)
+            
         }
     }, function(reason) { // Obviously just print the error if there is one
         console.error('error: ' + reason.result.error.message);
