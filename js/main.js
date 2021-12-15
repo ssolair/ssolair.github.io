@@ -41,7 +41,7 @@ function search_len(result, list, min_list) {
             }
         }
     }
-    return output
+    return files
 }
 
 function enterclick(inputElement) {
