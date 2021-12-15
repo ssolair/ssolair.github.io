@@ -7,7 +7,6 @@ document.getElementById("update-button").addEventListener("mouseout", ev => {
 })
 
 var tpages = document.getElementById("tpages")
-tpages.style.visibility = 'hidden';
 
 // Notifications
 function notify(msg, color) {
