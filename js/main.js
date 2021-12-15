@@ -15,7 +15,6 @@ function notify(msg, color) {
     notifier.style.visibility = 'visible';
     setTimeout(() => {notifier.style.visibility='hidden'}, 5000);
 }
-
 function comparelist(taglist, list, min_list){
     for (var a of list) {
         if (!(taglist.includes(a))){
@@ -30,14 +29,21 @@ function comparelist(taglist, list, min_list){
     return true
 }
 
-function search_len(fullsearch, list, min_list){
-    let x = 0;
-    for(let y = 0; y < fullsearch.values.length; y++){
-        if (comparelist(fullsearch.values[x][1].slice(2, -2).split("', '"), list, min_list)){
-            x += 1;
+function search_len(result, list, min_list) {
+    var output = {
+        files: []
+    }
+    for(i = 0; i < result.values.length; i++){
+        var url = result.values[i][0]
+        var tags = result.values[i][1].slice(2, -2).split("', '")
+        if (comparelist(tags, list, min_list)){
+            output[files][i] = {
+                url: url,
+                tags: tags
+            }
         }
     }
-    return x;
+    return output
 }
 
 function enterclick(inputElement) {
@@ -102,7 +108,7 @@ function addImgsAll() { // Load all images with specified tags
         let i = 0;
         let p = 0
         let LoadedImages = 0;
-        total_pages = (search_len(response.result, query, min_query) / 25)
+        total_pages = search_len(response.result, query, min_query)
         console.log(total_pages)
         while (i < response.result.values.length && LoadedImages < 25) {
             // Add images to website
