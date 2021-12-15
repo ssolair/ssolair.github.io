@@ -109,7 +109,7 @@ function addImgsAll() { // Load all images with specified tags
         files = search_len(response.result, query, min_query)
         total_pages = Math.ceil(files/25)
         console.log(total_pages)
-        for(i = (files_nums - 25); i < file_nums; i++) {
+        for(i = (file_nums - 25); i < file_nums; i++) {
             if (files[i][url].match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
                 var imgs = document.createElement("video");
                 imgs.setAttribute("controls","controls")
