@@ -33,7 +33,7 @@ function comparelist(taglist, list, min_list){
 function search_len(fullsearch, list, min_list){
     let x = 0;
     for(let y = 0; y < fullsearch.length; y++){
-        if (comparelist(fullsearch[x][1], list, min_list)){
+        if (comparelist(fullsearch[x][1].slice(2, -2).split("', '"), list, min_list)){
             x += 1;
         }
     }
