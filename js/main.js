@@ -91,6 +91,7 @@ function addImgsAll() { // Load all images with specified tags
         if (query[0] == "") {
             query = []
         }
+        console.log(`query: ${query} \nMin_query: ${min_query}}`)
         files = search_len(response.result, query, min_query);
         tpages.innerHTML = ` out of ${Math.ceil(files.length/25).toString()}`
         tpages.style.visibility = 'visible';
