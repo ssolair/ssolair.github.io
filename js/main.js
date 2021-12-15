@@ -114,19 +114,23 @@ function addImgsAll() { // Load all images with specified tags
         tpages.style.visibility = 'visible';
 
         for(i = (file_nums - 25); i < file_nums; i++) {
-            if (files[i].url.match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
-                var imgs = document.createElement("video");
-                imgs.setAttribute("controls","controls")
-                imgs.setAttribute("loop","true")
-            } else {
-                var imgs = document.createElement("img");
-            }
-        var src = document.getElementById("body"); 
-        imgs.src = files[i].url;
-        src.appendChild(imgs);
-        imgs.style.width = '450px';
-        imgs.style.height = 'auto';
-        imgs.style.border = "5px";
+            if(i < files.length){
+                if (files[i].url.match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
+                    var imgs = document.createElement("video");
+                    imgs.setAttribute("controls","controls")
+                    imgs.setAttribute("loop","true")
+                } else {
+                    var imgs = document.createElement("img");
+                }
+            var src = document.getElementById("body"); 
+            imgs.src = files[i].url;
+            src.appendChild(imgs);
+            imgs.style.width = '450px';
+            imgs.style.height = 'auto';
+            imgs.style.border = "5px";
+            }else{
+                break
+            }   
         }
     }, function(reason) { // Obviously just print the error if there is one
         console.error('error: ' + reason.result.error.message);
