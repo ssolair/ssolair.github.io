@@ -70,7 +70,10 @@ function addImgsAll() { // Load all images with specified tags
         LoadedImages = 0
 
         var page = parseInt(document.getElementById("page").value)
-        var file_nums = page * 25
+        console.log(page)
+        var file_nums = (page * 25)
+        console.log(file_nums)
+        
 
         var query = document.getElementById('tags').value.split(', ');
         var min_query = [];
