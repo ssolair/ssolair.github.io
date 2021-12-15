@@ -108,6 +108,7 @@ function addImgsAll() { // Load all images with specified tags
         }
         files = search_len(response.result, query, min_query);
         tpages.value = Math.ceil(files.length/25);
+        console.log(tpages.value);
         tpages.style.visibility = 'visible';
 
         for(i = (file_nums - 25); i < file_nums; i++) {
