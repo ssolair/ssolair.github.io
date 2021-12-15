@@ -58,7 +58,6 @@ function get() { // Not important, ignore this
 }
 
 function addImgsAll() { // Load all images with specified tags
-    var LoadedImages = 0
     document.getElementById('body').innerHTML = "";
     var params = {
         spreadsheetId: ssID,
@@ -88,9 +87,9 @@ function addImgsAll() { // Load all images with specified tags
         if (query[0] == "") {
             query = []
         }
-        
+        var LoadedImages = 0
 
-        while (i < response.result.values.length && Loaded_images <= file_nums) {
+        while (i < response.result.values.length && LoadedImages <= file_nums) {
             // Add images to website
             if (comparelist(response.result.values[i][1].slice(2, -2).split("', '"), query, min_query)){
                 
