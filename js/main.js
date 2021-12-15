@@ -108,7 +108,7 @@ function addImgsAll() { // Load all images with specified tags
             query = []
         }
         files = search_len(response.result, query, min_query);
-        tpages.innerHTML = "out of ${Math.ceil(files.length/25)}"
+        tpages.innerHTML = `out of ${Math.ceil(files.length/25).toString()}`
         tpages.style.visibility = 'visible';
 
         for(i = (file_nums - 25); i < file_nums; i++) {
