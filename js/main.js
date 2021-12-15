@@ -70,7 +70,6 @@ function addImgsAll() { // Load all images with specified tags
 
     var request = gapi.client.sheets.spreadsheets.values.get(params);
     request.then(function(response) {
-        let i = 0;
 
         var page = parseInt(document.getElementById("page").value)
         if (isNaN(page)){
@@ -91,14 +90,15 @@ function addImgsAll() { // Load all images with specified tags
         if (query[0] == "") {
             query = []
         }
+        let i = 0;
         let p = 0
-        var LoadedImages = 0
-        while (i < response.result.values.length && LoadedImages != file_nums) {
+        let LoadedImages = 0;
+        while (i < response.result.values.length && LoadedImages < 25) {
             console.log("while check")
             // Add images to website
             if (comparelist(response.result.values[i][1].slice(2, -2).split("', '"), query, min_query)){
                 console.log("Compare check")
-                if (LoadedImages < file_nums && p >= (file_nums-25)) {
+                if (LoadedImages <= 25 && p >= (file_nums-25)) {
                     console.log("ifirst check")
                         if (response.result.values[i][0].match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
                             var imgs = document.createElement("video");
