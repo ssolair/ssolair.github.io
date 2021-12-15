@@ -87,6 +87,7 @@ function addImgsAll() { // Load all images with specified tags
                 min_query.push(query[x].substring(1));
                 query.splice(x, 1);
             }
+            x--;
         }
         if (query[0] == "") {
             query = []
