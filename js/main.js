@@ -130,10 +130,7 @@ function initClient() { // Runs right as the user enters the website.
     'clientId': CLIENT_ID,
     'scope': SCOPE,
     'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
-    }).then(function() {
-    gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
-    updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-    });
+    })
 }
 
 function handleClientLoad() { // When a client loads the page
