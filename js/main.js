@@ -30,8 +30,14 @@ function comparelist(taglist, list, min_list){
     return true
 }
 
+var tagsinput = document.getElementById("tags");
 
-
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("update-button").click();
+  }
+}); 
 
 ssID = "1NJrmjnYCJp-E4VJyQa3DmeZtm6-PwsFfkmyDBLrkLAw"
 
