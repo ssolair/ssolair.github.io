@@ -109,9 +109,8 @@ function addImgsAll() { // Load all images with specified tags
                     imgs.style.height = 'auto';
                     imgs.style.border = "5px";
                 }
-                
+                i++;
             }   
-            i++;
         }
     }, function(reason) { // Obviously just print the error if there is one
         console.error('error: ' + reason.result.error.message);
