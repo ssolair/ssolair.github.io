@@ -94,7 +94,7 @@ function addImgsAll() { // Load all images with specified tags
             // Add images to website
             if (comparelist(response.result.values[i][1].slice(2, -2).split("', '"), query, min_query)){
                 LoadedImages += 1
-                if (LoadedImages > min && LoadedImages < max) {
+                if (LoadedImages <= file_nums && LoadedImages > (file_nums-25)) {
                         if (response.result.values[i][0].match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
                             var imgs = document.createElement("video");
                             imgs.setAttribute("controls","controls")
