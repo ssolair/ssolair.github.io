@@ -108,8 +108,8 @@ function addImgsAll() { // Load all images with specified tags
                     imgs.style.width = '450px';
                     imgs.style.height = 'auto';
                     imgs.style.border = "5px";
-                }
-                LoadedImages += 1              
+                    LoadedImages += 1
+                }           
             }   
             console.log("loopin")
             i++;
