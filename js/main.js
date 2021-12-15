@@ -103,9 +103,9 @@ function addImgsAll() { // Load all images with specified tags
         if (query[0] == "") {
             query = []
         }
-        let i = 0;
-        let p = 0
-        let LoadedImages = 0;
+        //let i = 0;
+        //let p = 0
+        //let LoadedImages = 0;
         files = search_len(response.result, query, min_query)
         total_pages = Math.ceil(files/25)
         console.log(total_pages)
@@ -123,7 +123,7 @@ function addImgsAll() { // Load all images with specified tags
         imgs.style.width = '450px';
         imgs.style.height = 'auto';
         imgs.style.border = "5px";
-        LoadedImages += 1
+        //LoadedImages += 1
         }
         /*while (i < response.result.values.length && LoadedImages < 25) {
             // Add images to website
