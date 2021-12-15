@@ -35,7 +35,7 @@ function search_len(result, list, min_list) {
         var url = result.values[i][0]
         var tags = result.values[i][1].slice(2, -2).split("', '")
         if (comparelist(tags, list, min_list)){
-            output[files][i] = {
+            files[i] = {
                 url: url,
                 tags: tags
             }
