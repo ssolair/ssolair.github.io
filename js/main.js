@@ -29,15 +29,18 @@ function comparelist(taglist, list, min_list){
     }
     return true
 }
-
+function enterclick(inputElement) {
+    input.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("update-button").click();
+      }
+    }); 
+}
 var input = document.getElementById("tags");
-
-input.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-    event.preventDefault();
-    document.getElementById("update-button").click();
-  }
-}); 
+enterclick(input)
+input = document.getElementById("page");
+enterclick(input)
 
 ssID = "1NJrmjnYCJp-E4VJyQa3DmeZtm6-PwsFfkmyDBLrkLAw"
 
