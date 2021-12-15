@@ -129,3 +129,7 @@ function initClient() { // Runs right as the user enters the website.
     'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
     })
 }
+
+function handleClientLoad() { // When a client loads the page
+    gapi.load('client:auth2', initClient);
+}
