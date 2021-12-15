@@ -6,6 +6,9 @@ document.getElementById("update-button").addEventListener("mouseout", ev => {
     document.getElementById("update-button").style.backgroundColor = '#A1C7FF'
 })
 
+var tpages = document.getElementById("tpages")
+tpages.style.display = 'none';
+
 // Notifications
 function notify(msg, color) {
     var notifier = document.getElementById("notify");
@@ -103,8 +106,9 @@ function addImgsAll() { // Load all images with specified tags
         if (query[0] == "") {
             query = []
         }
-        files = search_len(response.result, query, min_query)
-        total_pages = Math.ceil(files.length/25)
+        files = search_len(response.result, query, min_query);
+        tpages.value = Math.ceil(files.length/25);
+        tpages.style.display = 'block';
 
         for(i = (file_nums - 25); i < file_nums; i++) {
             if (files[i].url.match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
