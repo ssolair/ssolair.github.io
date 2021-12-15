@@ -88,14 +88,14 @@ function addImgsAll() { // Load all images with specified tags
         if (query[0] == "") {
             query = []
         }
-        
+        let p = 0
         var LoadedImages = 0
         while (i < response.result.values.length && LoadedImages != file_nums) {
             console.log("while check")
             // Add images to website
             if (comparelist(response.result.values[i][1].slice(2, -2).split("', '"), query, min_query)){
                 console.log("Compare check")
-                if (LoadedImages < file_nums && i >= (file_nums-25)) {
+                if (LoadedImages < file_nums && p >= (file_nums-25)) {
                     console.log("ifirst check")
                         if (response.result.values[i][0].match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
                             var imgs = document.createElement("video");
@@ -112,10 +112,10 @@ function addImgsAll() { // Load all images with specified tags
                     imgs.style.border = "5px";
                     LoadedImages += 1
                 }      
-                console.log(i)
-                i++;     
+                p++;
+                    
             }
-            console.log(i)
+            i++; 
             
         }
     }, function(reason) { // Obviously just print the error if there is one
