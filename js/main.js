@@ -58,6 +58,7 @@ function get() { // Not important, ignore this
 }
 
 function addImgsAll() { // Load all images with specified tags
+    var LoadedImages = 0
     document.getElementById('body').innerHTML = "";
     var params = {
         spreadsheetId: ssID,
@@ -67,7 +68,6 @@ function addImgsAll() { // Load all images with specified tags
     var request = gapi.client.sheets.spreadsheets.values.get(params);
     request.then(function(response) {
         let i = 0;
-        LoadedImages = 0
 
         var page = parseInt(document.getElementById("page").value)
         if (isNaN(page)){
