@@ -30,7 +30,7 @@ function comparelist(taglist, list, min_list){
     return true
 }
 function enterclick(inputElement) {
-    input.addEventListener("keyup", function(event) {
+    inputElement.addEventListener("keyup", function(event) {
       if (event.keyCode === 13) {
         event.preventDefault();
         document.getElementById("update-button").click();
