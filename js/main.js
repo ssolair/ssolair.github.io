@@ -138,10 +138,3 @@ function initClient() { // Runs right as the user enters the website.
 function handleClientLoad() { // When a client loads the page
     gapi.load('client:auth2', initClient);
 }
-
-function updateSignInStatus(isSignedIn) { // Ignore this for now
-    if (isSignedIn) {
-    get();
-    notify("Signed in.", '#00744d');
-    }
-}
