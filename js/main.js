@@ -103,7 +103,7 @@ function addImgsAll() { // Load all images with specified tags
                     var src = document.getElementById("body"); 
                     imgs.src = response.result.values[i][0];
                     src.appendChild(imgs);
-                    imgs.style.width = '500px';
+                    imgs.style.width = '450px';
                     imgs.style.height = 'auto';
                     imgs.style.border = "5px";
                 }
