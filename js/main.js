@@ -87,8 +87,6 @@ function addImgsAll() { // Load all images with specified tags
         if (query[0] == "") {
             query = []
         }
-        console.log(query)
-        console.log(min_query)
         
         while (i < response.result.values.length) {
             // Add images to website
