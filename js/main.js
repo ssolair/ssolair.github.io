@@ -70,7 +70,9 @@ function addImgsAll() { // Load all images with specified tags
         LoadedImages = 0
 
         var page = parseInt(document.getElementById("page").value)
-        console.log(page)
+        if (isNaN(page)){
+            page = 1;
+        }
         var file_nums = (page * 25)
         console.log(file_nums)
         
