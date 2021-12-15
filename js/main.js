@@ -30,7 +30,7 @@ function comparelist(taglist, list, min_list){
     return true
 }
 
-var tagsinput = document.getElementById("tags");
+var input = document.getElementById("tags");
 
 input.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
