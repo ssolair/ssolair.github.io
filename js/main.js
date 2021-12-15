@@ -29,6 +29,17 @@ function comparelist(taglist, list, min_list){
     }
     return true
 }
+
+function search_len(fullsearch, list, min_list){
+    let x = 0;
+    for(let y = 0; y < fullsearch.length; y++){
+        if (comparelist(fullsearch[x][1], list, min_list)){
+            x += 1;
+        }
+    }
+    return x;
+}
+
 function enterclick(inputElement) {
     inputElement.addEventListener("keyup", function(event) {
       if (event.keyCode === 13) {
@@ -76,8 +87,6 @@ function addImgsAll() { // Load all images with specified tags
             page = 1;
         }
         var file_nums = (page * 25)
-        
-        console.log(file_nums)
 
         var query = document.getElementById('tags').value.split(', ');
         var min_query = [];
@@ -93,13 +102,12 @@ function addImgsAll() { // Load all images with specified tags
         let i = 0;
         let p = 0
         let LoadedImages = 0;
+        total_pages = (search_len(response.result.values, query, min_query) / 25)
+        console.log(total_pages)
         while (i < response.result.values.length && LoadedImages < 25) {
-            console.log("while check")
             // Add images to website
             if (comparelist(response.result.values[i][1].slice(2, -2).split("', '"), query, min_query)){
-                console.log("Compare check")
                 if (LoadedImages <= 25 && p >= (file_nums-25)) {
-                    console.log("ifirst check")
                         if (response.result.values[i][0].match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
                             var imgs = document.createElement("video");
                             imgs.setAttribute("controls","controls")
