@@ -16,6 +16,8 @@ document.addEventListener('keydown', function(event){
 
 var tpages = document.getElementById("tpages")
 
+
+
 // Notifications
 function popup(msg) {
     var notifier = document.getElementById("notify");
@@ -120,7 +122,6 @@ function addImgsAll() { // Load all images with specified tags
 
         for(i = (file_nums - 25); i < file_nums; i++) {
             if(i < files.length){
-                console.log(`img${i} loaded`)
                 if (files[i].url.match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
                     var imgs = document.createElement("video");
                     imgs.src = files[i].url;
@@ -131,7 +132,8 @@ function addImgsAll() { // Load all images with specified tags
                     imgs.src = files[i].url;
                 }
             var src = document.getElementById("body"); 
-            imgs.id = `img${i}`;
+            imgs.id = `img${i - (file_nums - 25)}`;
+            console.log(imgs.id)
             imgs.style.width = '450px';
             imgs.style.height = 'auto';
             imgs.style.border = "5px";
