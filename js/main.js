@@ -149,6 +149,7 @@ function addImgsAll() { // Load all images with specified tags
         tpages.innerHTML = ` out of ${Math.ceil(files.length/25).toString()}`
         tpages.style.visibility = 'visible';
        
+        let imgarr = []
 
         for(i = (file_nums - 25); i < file_nums; i++) {
             if(i < files.length){
@@ -160,6 +161,7 @@ function addImgsAll() { // Load all images with specified tags
                 } else {
                     var imgs = document.createElement("img");
                     imgs.src = files[i].url;
+                    imgarr.push(i - (file_nums - 25));
                 }
             var src = document.getElementById("body"); 
             imgs.id = `img${i - (file_nums - 25)}`;
@@ -171,6 +173,10 @@ function addImgsAll() { // Load all images with specified tags
             }else{
                 break
             }   
+        }
+        for(i = 0; i < imgarr.length; i++){
+            let id = `img${imgarr[i]}`
+            document.getElementById(id).onclick = function(){notify(id)}
         }
     }, function(reason) { // Obviously just print the error if there is one
         console.error('error: ' + reason.result.error.message);
