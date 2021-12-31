@@ -17,7 +17,7 @@ document.addEventListener('keydown', function(event){
 var tpages = document.getElementById("tpages")
 
 // Notifications
-function notify(msg) {
+/*function notify(msg) {
     var notifier = document.getElementById("notify");
     notifier.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
     if (msg.match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
@@ -35,7 +35,7 @@ function notify(msg) {
     imgs.style.height = 'auto';
     imgs.style.border = "0px";
     notifier.style.visibility = 'visible';
-}
+}*/
 function comparelist(taglist, list, min_list){
     for (var a of list) {
         if (!(taglist.includes(a))){
@@ -115,8 +115,7 @@ function addImgsAll() { // Load all images with specified tags
         files = search_len(response.result, query, min_query);
         tpages.innerHTML = ` out of ${Math.ceil(files.length/25).toString()}`
         tpages.style.visibility = 'visible';
-        
-        var imagearr = []
+       
 
         for(i = (file_nums - 25); i < file_nums; i++) {
             console.log(i)
@@ -128,7 +127,6 @@ function addImgsAll() { // Load all images with specified tags
                     imgs.setAttribute("loop","true")
                 } else {
                     var imgs = document.createElement("img");
-                    imagearr.push(i)
                     imgs.src = files[i].url;
                 }
             var src = document.getElementById("body"); 
@@ -140,11 +138,6 @@ function addImgsAll() { // Load all images with specified tags
             }else{
                 break
             }   
-        }
-        for(let i = 0; i < imagearr.length; i++){
-            var tmp = `img${imagearr[i]}`
-            console.log(`document.getElementById(\'${tmp}\').onclick = function() {notify(document.getElementById(\'${tmp}\').src)}`)
-            document.getElementById(tmp).onclick = notify(document.getElementById(tmp).src)
         }
     }, function(reason) { // Obviously just print the error if there is one
         console.error('error: ' + reason.result.error.message);
