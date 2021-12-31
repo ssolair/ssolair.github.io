@@ -16,7 +16,13 @@ document.addEventListener('keydown', function(event){
 
 var tpages = document.getElementById("tpages")
 
-
+function imgSize(id){
+    let img = document.getElementById(id);
+    let width = img.width;
+    let height = img.height;
+    let ratio = (width / height);
+    return `${width}, ${hieght}, ${ratio}`
+}
 
 // Notifications
 function popup(msg) {
