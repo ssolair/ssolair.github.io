@@ -180,7 +180,7 @@ function addImgsAll() { // Load all images with specified tags
         }
         for(i = 0; i < imgarr.length; i++){
             let id = `img${imgarr[i]}`
-            document.getElementById(id).onclick = function(){notify(id)}
+            document.getElementById(id).onclick = function(){popup(id)}
         }
     }, function(reason) { // Obviously just print the error if there is one
         console.error('error: ' + reason.result.error.message);
