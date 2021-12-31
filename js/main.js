@@ -27,7 +27,6 @@ function notify(msg) {
     imgs.style.width = 'auto';
     imgs.style.height = 'auto';
     imgs.style.border = "0px";
-    notifierText.innerText = msg;
     notifier.style.visibility = 'visible';
     setTimeout(() => {notifier.style.visibility='hidden'}, 5000);
 }
