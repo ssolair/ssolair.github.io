@@ -23,6 +23,14 @@ function imgSize(id){
     let ratio = (width / height);
     return `${width}, ${height}, ${ratio}`
 }
+function divSize(id){
+    let div = document.getElementById(id);
+    let size = {}
+    size.width = div.clientWidth;
+    size.height = div.clientHeight;
+    size.ratio = (size.width / size.height);
+    return size
+}
 
 // Notifications
 function popup(msg) {
