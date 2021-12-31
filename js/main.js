@@ -115,30 +115,28 @@ function addImgsAll() { // Load all images with specified tags
         files = search_len(response.result, query, min_query);
         tpages.innerHTML = ` out of ${Math.ceil(files.length/25).toString()}`
         tpages.style.visibility = 'visible';
-        
-        var src = document.getElementById("body");
+
         for(i = (file_nums - 25); i < file_nums; i++) {
+            console.log(i)
             if(i < files.length){
                 if (files[i].url.match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
                     var imgs = document.createElement("video");
-                    imgs.id = `img${i}`;
                     imgs.src = files[i].url;
                     imgs.setAttribute("controls","controls")
                     imgs.setAttribute("loop","true")
-                    src.appendChild(imgs);
                 } else {
                     var imgs = document.createElement("img");
-                    imgs.id = `img${i}`;
                     imgs.src = files[i].url;
-                    src.appendChild(imgs);
-                    var image = document.getElementById(`img${i}`)
-                    image.onclick = function() {notify(image.src);
+                    imgs.onclick = function() {notify(imgs.src);
                                                console.log(i);
                                               }
                 }
+            var src = document.getElementById("body"); 
+            imgs.id = `img${i}`;
             imgs.style.width = '450px';
             imgs.style.height = 'auto';
             imgs.style.border = "5px";
+            src.appendChild(imgs);
             }else{
                 break
             }   
