@@ -19,6 +19,7 @@ var tpages = document.getElementById("tpages")
 // Notifications
 function popup(msg) {
     var notifier = document.getElementById("notify");
+    var imageElement = document.getElementById(msg);
     notifier.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
     if (msg.match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
         var imgs = document.createElement("video");
@@ -28,7 +29,7 @@ function popup(msg) {
         var imgs = document.createElement("img");
     }
     var src = document.getElementById("notify"); 
-    imgs.src = msg;
+    imgs.src = imageElement.src;
     imgs.id = "notifimage";
     src.appendChild(imgs);
     imgs.style.width = 'auto';
