@@ -130,7 +130,6 @@ function addImgsAll() { // Load all images with specified tags
                     var imgs = document.createElement("img");
                     imagearr.push(i)
                     imgs.src = files[i].url;
-                    imgs.onclick = function() {notify(imgs.src)}
                 }
             var src = document.getElementById("body"); 
             imgs.id = `img${i}`;
@@ -141,6 +140,10 @@ function addImgsAll() { // Load all images with specified tags
             }else{
                 break
             }   
+        }
+        for(i = 0; i < imagearr.length; i++){
+            var tmp = `img${imagearr[i]}`
+            document.getElementById(tmp) = function() {notify(document.getElementById(tmp).src)}
         }
     }, function(reason) { // Obviously just print the error if there is one
         console.error('error: ' + reason.result.error.message);
