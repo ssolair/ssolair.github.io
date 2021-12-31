@@ -5,6 +5,14 @@ document.getElementById("update-button").addEventListener("mouseover", ev => { /
 document.getElementById("update-button").addEventListener("mouseout", ev => {
     document.getElementById("update-button").style.backgroundColor = '#A1C7FF'
 })
+document.addEventListener('keydown', function(event){
+    if(event.key === "Escape"){
+        var notifier = document.getElementById("notify");
+        notifier.style.visibility = 'hidden';
+        var ex = document.getElementById("notifimage")
+        ex.remove()
+    }
+})
 
 var tpages = document.getElementById("tpages")
 
@@ -28,7 +36,6 @@ function notify(msg) {
     imgs.style.height = 'auto';
     imgs.style.border = "0px";
     notifier.style.visibility = 'visible';
-    setTimeout(() => {notifier.style.visibility='hidden'}, 5000);
 }
 function comparelist(taglist, list, min_list){
     for (var a of list) {
