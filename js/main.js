@@ -125,11 +125,11 @@ function addImgsAll() { // Load all images with specified tags
                     imgs.setAttribute("loop","true")
                 } else {
                     var imgs = document.createElement("img");
+                    imgs.onclick = notify(files[i].url)
                 }
             var src = document.getElementById("body"); 
             imgs.src = files[i].url;
             imgs.id = `img${i}`;
-            imgs.onclick = console.log(`activated${i}`); //notify(files[i].url)
             imgs.style.width = '450px';
             imgs.style.height = 'auto';
             imgs.style.border = "5px";
