@@ -9,10 +9,24 @@ document.getElementById("update-button").addEventListener("mouseout", ev => {
 var tpages = document.getElementById("tpages")
 
 // Notifications
-function notify(msg, color) {
+function notify(msg) {
     var notifier = document.getElementById("notify");
-    notifier.style.backgroundColor = color
+    notifier.style.backgroundColor = "#000000"
     var notifierText = document.getElementById("notifyText");
+    if (msg.match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
+        var imgs = document.createElement("video");
+        imgs.setAttribute("controls","controls")
+        imgs.setAttribute("loop","true")
+    } else {
+        var imgs = document.createElement("img");
+    }
+    var src = document.getElementById("notify"); 
+    imgs.src = files[i].url;
+    imgs.id = `img${i}`;
+    src.appendChild(imgs);
+    imgs.style.width = 'auto';
+    imgs.style.height = 'auto';
+    imgs.style.border = "0px";
     notifierText.innerText = msg;
     notifier.style.visibility = 'visible';
     setTimeout(() => {notifier.style.visibility='hidden'}, 5000);
@@ -109,6 +123,7 @@ function addImgsAll() { // Load all images with specified tags
             var src = document.getElementById("body"); 
             imgs.src = files[i].url;
             imgs.id = `img${i}`;
+            imgs.onclick = notify(imgs.src);
             src.appendChild(imgs);
             imgs.style.width = '450px';
             imgs.style.height = 'auto';
