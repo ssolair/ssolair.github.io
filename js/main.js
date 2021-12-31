@@ -115,6 +115,8 @@ function addImgsAll() { // Load all images with specified tags
         files = search_len(response.result, query, min_query);
         tpages.innerHTML = ` out of ${Math.ceil(files.length/25).toString()}`
         tpages.style.visibility = 'visible';
+        
+        var imagearr = []
 
         for(i = (file_nums - 25); i < file_nums; i++) {
             console.log(i)
@@ -126,6 +128,7 @@ function addImgsAll() { // Load all images with specified tags
                     imgs.setAttribute("loop","true")
                 } else {
                     var imgs = document.createElement("img");
+                    imagearr.push(i)
                     imgs.src = files[i].url;
                 }
             var src = document.getElementById("body"); 
@@ -138,11 +141,13 @@ function addImgsAll() { // Load all images with specified tags
                 break
             }   
         }
+        for(i = 0 ; i < imagearr.length ; i++) {
+            var tmp = `img${i}`;
+            var image = document.getElementById(tmp);
+            image.onclick = notify(image.src);
+        }
     }, function(reason) { // Obviously just print the error if there is one
         console.error('error: ' + reason.result.error.message);
-    });
-    $('img').click(function(){
-        notify(this.src);
     });
 }
 
