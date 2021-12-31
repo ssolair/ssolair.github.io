@@ -44,7 +44,7 @@ body {
     position: absolute;
     top: 0px;
     right: 0px;
-    font-size: 50px;
-    background-color: rgba(0, 0, 0, .2);
+    font-size: 70px;
+    background-color: rgba(0, 0, 0, 0);
     color: rgba(255, 255, 255, .5);
 }
