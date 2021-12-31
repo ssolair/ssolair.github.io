@@ -5,12 +5,16 @@ document.getElementById("update-button").addEventListener("mouseover", ev => { /
 document.getElementById("update-button").addEventListener("mouseout", ev => {
     document.getElementById("update-button").style.backgroundColor = '#A1C7FF'
 })
+function hideNotify(){
+    var notifier = document.getElementById("notify");
+    notifier.style.visibility = 'hidden';
+    var ex = document.getElementById("notifimage")
+    ex.remove()
+}
+
 document.addEventListener('keydown', function(event){
     if(event.key === "Escape"){
-        var notifier = document.getElementById("notify");
-        notifier.style.visibility = 'hidden';
-        var ex = document.getElementById("notifimage")
-        ex.remove()
+        hideNotify()
     }
 })
 
@@ -176,7 +180,7 @@ function addImgsAll() { // Load all images with specified tags
         }
         for(i = 0; i < imgarr.length; i++){
             let id = `img${imgarr[i]}`
-            document.getElementById(id).onclick = function(){popup(id)}
+            document.getElementById(id).onclick = function(){notify(id)}
         }
     }, function(reason) { // Obviously just print the error if there is one
         console.error('error: ' + reason.result.error.message);
