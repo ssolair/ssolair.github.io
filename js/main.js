@@ -17,11 +17,12 @@ document.addEventListener('keydown', function(event){
 var tpages = document.getElementById("tpages")
 
 // Notifications
-function notify(msg) {
+function notify(id) {
     var notifier = document.getElementById("notify");
     notifier.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
     var notifierText = document.getElementById("notifyText");
-    if (msg.match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
+    var image = document.getElementById(`img${id}`);
+    if (image.src.match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
         var imgs = document.createElement("video");
         imgs.setAttribute("controls","controls")
         imgs.setAttribute("loop","true")
@@ -29,7 +30,7 @@ function notify(msg) {
         var imgs = document.createElement("img");
     }
     var src = document.getElementById("notify"); 
-    imgs.src = msg;
+    imgs.src = image.src;
     imgs.id = "notifimage";
     src.appendChild(imgs);
     imgs.style.width = 'auto';
@@ -129,7 +130,7 @@ function addImgsAll() { // Load all images with specified tags
             var src = document.getElementById("body"); 
             imgs.src = files[i].url;
             imgs.id = `img${i}`;
-            imgs.onclick = "notify(imgs.src)";
+            imgs.onclick = notify(i);
             src.appendChild(imgs);
             imgs.style.width = '450px';
             imgs.style.height = 'auto';
