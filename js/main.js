@@ -143,7 +143,8 @@ function addImgsAll() { // Load all images with specified tags
         }
         for(i = 0 ; i < imagearr.length ; i++) {
             var tmp = `img${imagearr[i]}`;
-            document.getElementById(tmp).onclick = notify(image.src)
+            var img = document.getElementById(tmp)
+            img.onclick = `notify(${image.src})`
         }
     }, function(reason) { // Obviously just print the error if there is one
         console.error('error: ' + reason.result.error.message);
