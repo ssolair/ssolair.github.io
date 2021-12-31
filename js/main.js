@@ -17,7 +17,7 @@ document.addEventListener('keydown', function(event){
 var tpages = document.getElementById("tpages")
 
 // Notifications
-/*function notify(msg) {
+function popup(msg) {
     var notifier = document.getElementById("notify");
     notifier.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
     if (msg.match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
@@ -35,7 +35,7 @@ var tpages = document.getElementById("tpages")
     imgs.style.height = 'auto';
     imgs.style.border = "0px";
     notifier.style.visibility = 'visible';
-}*/
+}
 function comparelist(taglist, list, min_list){
     for (var a of list) {
         if (!(taglist.includes(a))){
