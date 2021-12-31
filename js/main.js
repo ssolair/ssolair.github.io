@@ -13,9 +13,6 @@ document.addEventListener('keydown', function(event){
         ex.remove()
     }
 })
-$('img').click(function(){
-   notify(this.src);
-});
 
 var tpages = document.getElementById("tpages")
 
@@ -143,6 +140,9 @@ function addImgsAll() { // Load all images with specified tags
         }
     }, function(reason) { // Obviously just print the error if there is one
         console.error('error: ' + reason.result.error.message);
+    });
+    $('img').click(function(){
+        notify(this.src);
     });
 }
 
