@@ -23,7 +23,7 @@ function popup(msg) {
     var notifier = document.getElementById("notify");
     var imageElement = document.getElementById(msg);
     notifier.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
-    if (msg.match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
+    if (imageElement.src.match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
         var imgs = document.createElement("video");
         imgs.setAttribute("controls","controls")
         imgs.setAttribute("loop","true")
