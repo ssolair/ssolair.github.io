@@ -7,8 +7,8 @@ body {
     z-index: 999;
     visibility: hidden;
     border-radius: 10px;
-    height:96%;
-    width:98%;
+    height:100%;
+    width:100%;
     position: fixed;
     top: 1em;
     left: 50%;
