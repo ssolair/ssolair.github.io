@@ -20,7 +20,6 @@ var tpages = document.getElementById("tpages")
 function notify(msg) {
     var notifier = document.getElementById("notify");
     notifier.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
-    var notifierText = document.getElementById("notifyText");
     if (msg.match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
         var imgs = document.createElement("video");
         imgs.setAttribute("controls","controls")
@@ -118,6 +117,7 @@ function addImgsAll() { // Load all images with specified tags
         tpages.style.visibility = 'visible';
 
         for(i = (file_nums - 25); i < file_nums; i++) {
+            console.log(i)
             if(i < files.length){
                 if (files[i].url.match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
                     var imgs = document.createElement("video");
