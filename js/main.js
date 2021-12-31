@@ -130,7 +130,7 @@ function addImgsAll() { // Load all images with specified tags
                     var imgs = document.createElement("img");
                     imagearr.push(i)
                     imgs.src = files[i].url;
-                    imgs.onclick = function(`img${i}`) {notify(imgs.src)}
+                    imgs.onclick = function() {notify(imgs.src)}
                 }
             var src = document.getElementById("body"); 
             imgs.id = `img${i}`;
