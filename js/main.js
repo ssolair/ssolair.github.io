@@ -21,8 +21,8 @@ function notify(msg) {
         var imgs = document.createElement("img");
     }
     var src = document.getElementById("notify"); 
-    imgs.src = files[i].url;
-    imgs.id = `img${i}`;
+    imgs.src = msg;
+    imgs.id = "notifimage";
     src.appendChild(imgs);
     imgs.style.width = 'auto';
     imgs.style.height = 'auto';
