@@ -125,7 +125,9 @@ function addImgsAll() { // Load all images with specified tags
                     imgs.setAttribute("loop","true")
                 } else {
                     var imgs = document.createElement("img");
-                    imgs.onclick = notify(files[i].url)
+                    imgs.onclick = function() {notify(files[i].url);
+                                               console.log(i);
+                                              }
                 }
             var src = document.getElementById("body"); 
             imgs.src = files[i].url;
