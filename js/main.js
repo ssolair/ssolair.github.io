@@ -33,6 +33,15 @@ function divSize(id){
     return size
 }
 
+function DivMinusImg(div, img) {
+    const thing = divSize(div).ratio - imgSize(img).ratio;
+    if (thing < 0) {
+        return false
+    }else{
+        return true
+    }
+}
+
 // Notifications
 function popup(msg) {
     var notifier = document.getElementById("notify");
@@ -49,8 +58,13 @@ function popup(msg) {
     imgs.src = imageElement.src;
     imgs.id = "notifimage";
     src.appendChild(imgs);
-    imgs.style.width = '100%';
-    imgs.style.height = '100%';
+    if (DivMinusImg('notify', imageElement.id)){
+        imgs.style.height = '100%';
+        imgs.style.width = 'auto';
+    }else{
+        imgs.style.width = '100%';
+        imgs.style.height = 'auto';
+    }
     imgs.style.objectFit = 'cover';
     imgs.style.border = "0px";
     notifier.style.visibility = 'visible';
