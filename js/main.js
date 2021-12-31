@@ -34,6 +34,9 @@ function popup(msg) {
     imgs.src = imageElement.src;
     imgs.id = "notifimage";
     src.appendChild(imgs);
+    imgs.style.width = '100%';
+    imgs.style.height = '100%';
+    imgs.style.objectFit = cover;
     imgs.style.border = "0px";
     notifier.style.visibility = 'visible';
 }
