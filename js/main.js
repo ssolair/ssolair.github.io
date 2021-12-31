@@ -132,7 +132,7 @@ function addImgsAll() { // Load all images with specified tags
                     imgs.src = files[i].url;
                     src.appendChild(imgs);
                     var image = document.getElementById(`img${i}`)
-                    image.onclick = function() {notify(imgs.src);
+                    image.onclick = function() {notify(image.src);
                                                console.log(i);
                                               }
                 }
