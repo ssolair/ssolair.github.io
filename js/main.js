@@ -32,7 +32,7 @@ function notify(msg) {
     imgs.src = msg;
     imgs.id = "notifimage";
     src.appendChild(imgs);
-    imgs.style.width = '99%';
+    imgs.style.width = 'auto';
     imgs.style.height = 'auto';
     imgs.style.border = "0px";
     notifier.style.visibility = 'visible';
