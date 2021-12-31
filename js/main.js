@@ -126,15 +126,14 @@ function addImgsAll() { // Load all images with specified tags
                 } else {
                     var imgs = document.createElement("img");
                 }
-            var src = document.getElementById("body");
+            var src = document.getElementById("body"); 
+            imgs.src = files[i].url;
             imgs.id = `img${i}`;
-            var image = document.getElementById(`img${i}`);
-            image.src = files[i].url;
-            image.onclick = notify(imgs.src);
-            src.appendChild(image);
-            image.style.width = '450px';
-            image.style.height = 'auto';
-            image.style.border = "5px";
+            imgs.onclick = notify(imgs.src);
+            src.appendChild(imgs);
+            imgs.style.width = '450px';
+            imgs.style.height = 'auto';
+            imgs.style.border = "5px";
             }else{
                 break
             }   
