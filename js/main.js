@@ -18,10 +18,11 @@ var tpages = document.getElementById("tpages")
 
 function imgSize(id){
     let img = document.getElementById(id);
-    let width = img.width;
-    let height = img.height;
-    let ratio = (width / height);
-    return `${width}, ${height}, ${ratio}`
+    let size = {}
+    size.width = img.width;
+    size.height = img.height;
+    size.ratio = (size.width / size.height);
+    return size
 }
 function divSize(id){
     let div = document.getElementById(id);
