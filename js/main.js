@@ -129,7 +129,7 @@ function addImgsAll() { // Load all images with specified tags
             var src = document.getElementById("body"); 
             imgs.src = files[i].url;
             imgs.id = `img${i}`;
-            imgs.onclick = console.log("activated"); //notify(files[i].url)
+            imgs.onclick = console.log(`activated${i}`); //notify(files[i].url)
             imgs.style.width = '450px';
             imgs.style.height = 'auto';
             imgs.style.border = "5px";
