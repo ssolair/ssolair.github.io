@@ -19,7 +19,7 @@ var tpages = document.getElementById("tpages")
 // Notifications
 function notify(msg) {
     var notifier = document.getElementById("notify");
-    notifier.style.backgroundColor = "#000000"
+    notifier.style.backgroundColor = rgba(0, 0, 0, 0.75);
     var notifierText = document.getElementById("notifyText");
     if (msg.match(/\.(mp4|webm|mov)$/)) { // To add support for another file extension that displays on a website, add |extensionhere after the last extension.
         var imgs = document.createElement("video");
