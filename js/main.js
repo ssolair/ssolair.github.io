@@ -32,8 +32,8 @@ function notify(msg) {
     imgs.src = msg;
     imgs.id = "notifimage";
     src.appendChild(imgs);
-    imgs.style.width = 'auto';
-    imgs.style.height = 'auto';
+    imgs.style.width = '100%';
+    imgs.style.height = '100%';
     imgs.style.border = "0px";
     notifier.style.visibility = 'visible';
 }
