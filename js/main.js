@@ -21,7 +21,7 @@ function imgSize(id){
     let width = img.width;
     let height = img.height;
     let ratio = (width / height);
-    return `${width}, ${hieght}, ${ratio}`
+    return `${width}, ${height}, ${ratio}`
 }
 
 // Notifications
